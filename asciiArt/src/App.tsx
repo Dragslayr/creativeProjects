@@ -328,8 +328,8 @@ export default function App() {
 
       {/* ── Control panel ────────────────────────────────────────── */}
       {camReady && (
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 control-panel max-w-[95vw]">
-          <div className="flex items-center gap-x-4 gap-y-4 sm:gap-6 px-4 sm:px-5 py-3 sm:py-4 flex-wrap justify-center">
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 control-panel w-[92vw] sm:w-auto max-w-[95vw] pb-10 sm:pb-0">
+          <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-4 sm:gap-6 px-4 sm:px-5 py-4 flex-wrap justify-center w-full">
 
             {/* Night Vision toggle */}
             <label className="flex items-center gap-2 cursor-pointer select-none" id="nv-toggle">
@@ -380,7 +380,7 @@ export default function App() {
             <button
               id="switch-camera-btn"
               onClick={handleSwitchCamera}
-              className={`action-btn ${nightVision ? 'nv' : ''}`}
+              className={`action-btn ${nightVision ? 'nv' : ''} w-full sm:w-auto justify-center py-3 sm:py-[10px]`}
               title="Switch Camera"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -390,7 +390,7 @@ export default function App() {
                 <path d="m18 22-3-3 3-3" />
                 <path d="m6 2 3 3-3 3" />
               </svg>
-              <span className="text-[11px] tracking-wider uppercase font-medium hidden sm:inline">
+              <span className="text-[11px] tracking-wider uppercase font-medium">
                 Flip
               </span>
             </button>
@@ -400,15 +400,15 @@ export default function App() {
               id="capture-btn"
               onClick={handleCapture}
               disabled={capturing}
-              className={`action-btn capture ${nightVision ? 'nv' : ''} ${capturing ? 'capturing' : ''}`}
-              title="Save Frame"
+              className={`action-btn capture ${nightVision ? 'nv' : ''} ${capturing ? 'capturing' : ''} w-full sm:w-auto justify-center py-4 sm:py-[10px]`}
+              title="Save Selfie"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
                 <circle cx="12" cy="13" r="3" />
               </svg>
-              <span className="text-[11px] tracking-wider uppercase font-medium hidden sm:inline">
-                Capture
+              <span className="text-[11px] tracking-wider uppercase font-medium">
+                SAVE SELFIE
               </span>
             </button>
 
