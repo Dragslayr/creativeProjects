@@ -275,7 +275,7 @@ export default function App() {
 
   // ─── JSX ─────────────────────────────────────────────────────────────
   return (
-    <div id="app-root" className={`relative w-screen h-screen overflow-hidden bg-black ${nightVision ? 'nv-active' : ''}`}>
+    <div id="app-root" className={`relative w-screen h-[100dvh] overflow-hidden bg-black ${nightVision ? 'nv-active' : ''}`}>
       {/* Hidden video + sampler — playsinline & muted are crucial for iOS */}
       <video
         ref={videoRef}
@@ -328,7 +328,7 @@ export default function App() {
 
       {/* ── Control panel ────────────────────────────────────────── */}
       {camReady && (
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 control-panel w-[92vw] sm:w-auto max-w-[95vw] pb-10 sm:pb-0">
+        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 control-panel w-[92vw] sm:w-auto max-w-[95vw] pb-10 sm:pb-0 overflow-y-auto max-h-[85dvh]">
           <div className="flex flex-col sm:flex-row items-center gap-x-4 gap-y-4 sm:gap-6 px-4 sm:px-5 py-4 flex-wrap justify-center w-full">
 
             {/* Night Vision toggle */}
@@ -380,7 +380,7 @@ export default function App() {
             <button
               id="switch-camera-btn"
               onClick={handleSwitchCamera}
-              className={`action-btn ${nightVision ? 'nv' : ''} w-full sm:w-auto justify-center py-3 sm:py-[10px]`}
+              className={`action-btn ${nightVision ? 'nv' : ''} flex w-full sm:w-auto justify-center py-3 sm:py-[10px]`}
               title="Switch Camera"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -400,7 +400,7 @@ export default function App() {
               id="capture-btn"
               onClick={handleCapture}
               disabled={capturing}
-              className={`action-btn capture ${nightVision ? 'nv' : ''} ${capturing ? 'capturing' : ''} w-full sm:w-auto justify-center py-4 sm:py-[10px]`}
+              className={`action-btn capture ${nightVision ? 'nv' : ''} ${capturing ? 'capturing' : ''} flex w-full sm:w-auto justify-center py-4 sm:py-[10px]`}
               title="Save Selfie"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
