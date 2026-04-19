@@ -329,7 +329,7 @@ export default function App() {
       {/* ── Control panel ────────────────────────────────────────── */}
       {camReady && (
         <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 control-panel max-w-[95vw]">
-          <div className="flex items-center gap-4 sm:gap-6 px-4 sm:px-5 py-3 flex-wrap justify-center">
+          <div className="flex items-center gap-x-4 gap-y-4 sm:gap-6 px-4 sm:px-5 py-3 sm:py-4 flex-wrap justify-center">
 
             {/* Night Vision toggle */}
             <label className="flex items-center gap-2 cursor-pointer select-none" id="nv-toggle">
