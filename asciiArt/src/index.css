@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-nv-green: #39ff85;
+  --color-nv-cyan: #00e5ff;
+  --color-nv-dark: #0a1a0f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000000;
+  font-family: var(--font-sans);
+  color: #e0e0e0;
+}
+
+/* ── Custom range slider ──────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+  transition: background 0.2s;
+}
+input[type="range"]:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(255,255,255,0.3);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(255,255,255,0.3);
+}
+
+/* Night-vision slider override */
+.nv-active input[type="range"] {
+  background: rgba(57, 255, 133, 0.15);
+}
+.nv-active input[type="range"]:hover {
+  background: rgba(57, 255, 133, 0.25);
+}
+.nv-active input[type="range"]::-webkit-slider-thumb {
+  background: var(--color-nv-green);
+  box-shadow: 0 0 8px rgba(57, 255, 133, 0.5);
+}
+.nv-active input[type="range"]::-moz-range-thumb {
+  background: var(--color-nv-green);
+  box-shadow: 0 0 8px rgba(57, 255, 133, 0.5);
+}
+
+/* ── Toggle switch ────────────────────────────────────────────────── */
+.toggle-track {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+.toggle-track.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+.nv-active .toggle-track.active {
+  background: rgba(57, 255, 133, 0.35);
+}
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #666;
+  transition: transform 0.2s, background 0.2s;
+}
+.toggle-track.active .toggle-thumb {
+  transform: translateX(16px);
+  background: #fff;
+}
+.nv-active .toggle-track.active .toggle-thumb {
+  background: var(--color-nv-green);
+}
